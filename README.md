@@ -91,7 +91,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
     	|--data_seq
     ```
 
-  - Edit the **PATH** to the proper absolute path in ```lib/test/evaluation/local.py``` and ```lib/train/adim/local.py```.
+  - Edit the **PATH** in ```lib/test/evaluation/local.py``` and ```lib/train/adim/local.py``` to the proper absolute path.
 
 - ### Installation
 
