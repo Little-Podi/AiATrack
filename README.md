@@ -152,7 +152,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
       python lib/test/utils/transform_got10k.py --tracker_name aiatrack --cfg_name baseline_got
       ```
 
-      Then upload ```test/tracking_results/aiatrack/baseline_got10k/got10k_submit.zip``` to the [online evaluation server](http://got-10k.aitestunion.com/submit_instructions).
+      Then upload ```test/tracking_results/aiatrack/baseline_got/got10k_submit.zip``` to the [online evaluation server](http://got-10k.aitestunion.com/submit_instructions).
 
   - On small-scale benchmarks: 
 
@@ -171,7 +171,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
   - To show the immediate prediction result during inference, modify ```settings.show_result = True``` in ```lib/test/evaluation/local.py``` (may have bugs if you try this on a remote sever).
 
-  - Please refer to [STARK](https://github.com/researchmm/Stark/blob/main/external/AR/README.md) for VOT integration and [DETR](https://colab.research.google.com/github/facebookresearch/detr/blob/colab/notebooks/detr_attention.ipynb) for correlation map visualization.
+  - Please refer to [STARK+Alpha-Refine](https://github.com/researchmm/Stark/blob/main/external/AR/README.md) for VOT integration and [DETR Tutorial](https://colab.research.google.com/github/facebookresearch/detr/blob/colab/notebooks/detr_attention.ipynb) for correlation map visualization.
 
 ## Acknowledgement
 
