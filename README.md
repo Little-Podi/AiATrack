@@ -6,7 +6,7 @@ The official PyTorch implementation of our **ECCV 2022** paper:
 
 [Shenyuan Gao](https://github.com/Little-Podi), [Chunluan Zhou](https://www.sites.google.com/view/chunluanzhou/), [Chao Ma](https://vision.sjtu.edu.cn/), [Xinggang Wang](https://xinggangw.info/), [Junsong Yuan](https://cse.buffalo.edu/~jsyuan/)  
 
-[[PDF on arXiv](https://arxiv.org/abs/2207.09603)] [[Trained Models](todo)] [[Raw Results](todo)]
+[[PDF on arXiv](https://arxiv.org/abs/2207.09603)] [[Trained Models](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)] [[Raw Results](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)]
 
 ## Highlight
 
@@ -45,9 +45,9 @@ The proposed AiATrack has 15.79M (million) model parameters.
 
 ## Release
 
-**Trained Models** (containing the model we trained on four datasets and the model we trained on GOT-10k only) [[download zip file](todo)]
+**Trained Models** (containing the model we trained on four datasets and the model we trained on GOT-10k only) [[download zip file](https://github.com/Little-Podi/AiATrack/releases/download/downloads/Trained_Models.zip)]
 
-**Raw Results** (containing raw tracking results on the datasets we benchmarked in the paper) [[download zip file](todo)]
+**Raw Results** (containing raw tracking results on the datasets we benchmarked in the paper) [[download zip file](https://github.com/Little-Podi/AiATrack/releases/download/downloads/Raw_Results.zip)]
 
 Download and unzip these two zip files under AiATrack project path, then both of them can be directly used by our code.
 
