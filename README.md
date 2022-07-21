@@ -6,18 +6,6 @@ The official PyTorch implementation of our **ECCV 2022** paper:
 
 [Shenyuan Gao](https://github.com/Little-Podi), [Chunluan Zhou](https://www.sites.google.com/view/chunluanzhou/), [Chao Ma](https://vision.sjtu.edu.cn/), [Xinggang Wang](https://xinggangw.info/), [Junsong Yuan](https://cse.buffalo.edu/~jsyuan/)
 
-Using ResNet-50 pre-trianed on ImageNet-1k, we got:
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=aiatrack-attention-in-attention-for)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=aiatrack-attention-in-attention-for)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=aiatrack-attention-in-attention-for)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=aiatrack-attention-in-attention-for)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=aiatrack-attention-in-attention-for)
-
 [[PDF on arXiv](https://arxiv.org/abs/2207.09603)] [[Trained Models](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)] [[Raw Results](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)]
 
 ## Highlight
@@ -30,18 +18,18 @@ Transformer trackers have achieved impressive advancements recently, where the a
 
 ### :bookmark:Strong Performance
 
-The proposed AiATrack sets state-of-the-art results on 8 widely used benchmarks.
+The proposed AiATrack sets state-of-the-art results on 8 widely used benchmarks. Using ResNet-50 pre-trianed on ImageNet-1k, we got: 
 
-| Benchmark (Metrics)                | AiATrack              |
-| ---------------------------------- | --------------------- |
-| LaSOT (AUC / Norm P / P)           | 69.0 / 79.4 / 73.8    |
-| LaSOT Extension (AUC / Norm P / P) | 47.7 / 55.6 / 55.4    |
-| TrackingNet (AUC / Norm P / P)     | 82.7 / 87.8 / 80.4    |
-| GOT-10k (AO / SR 0.75 / SR 0.5)    | 69.6 / 63.2 / 80.0    |
-| NfS30 (AUC)                        | 67.9                  |
-| OTB100 (AUC)                       | 69.6                  |
-| UAV123 (AUC)                       | 70.6                  |
-| VOT2020 (EAO / A / R)              | 0.530 / 0.764 / 0.827 |
+| Benchmark (Metrics)                | AiATrack              | Leaderboard                                                  |
+| ---------------------------------- | --------------------- | ------------------------------------------------------------ |
+| LaSOT (AUC / Norm P / P)           | 69.0 / 79.4 / 73.8    | [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=aiatrack-attention-in-attention-for) |
+| LaSOT Extension (AUC / Norm P / P) | 47.7 / 55.6 / 55.4    |                                                              |
+| TrackingNet (AUC / Norm P / P)     | 82.7 / 87.8 / 80.4    | [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=aiatrack-attention-in-attention-for) |
+| GOT-10k (AO / SR 0.75 / SR 0.5)    | 69.6 / 63.2 / 80.0    | [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=aiatrack-attention-in-attention-for) |
+| NfS30 (AUC)                        | 67.9                  | [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-needforspeed)](https://paperswithcode.com/sota/visual-object-tracking-on-needforspeed?p=aiatrack-attention-in-attention-for) |
+| OTB100 (AUC)                       | 69.6                  | [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-otb-100)](https://paperswithcode.com/sota/visual-object-tracking-on-otb-100?p=aiatrack-attention-in-attention-for) |
+| UAV123 (AUC)                       | 70.6                  | [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/aiatrack-attention-in-attention-for/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=aiatrack-attention-in-attention-for) |
+| VOT2020 (EAO / A / R)              | 0.530 / 0.764 / 0.827 |                                                              |
 
 ### :bookmark:Inference Speed
 
