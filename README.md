@@ -18,7 +18,7 @@ Transformer trackers have achieved impressive advancements recently, where the a
 
 ### :bookmark:Strong Performance
 
-The proposed AiATrack sets state-of-the-art results on 8 widely used benchmarks. Using ResNet-50 pre-trianed on ImageNet-1k, we got: 
+The proposed AiATrack sets state-of-the-art results on 8 widely used benchmarks. Using ResNet-50 pre-trianed on ImageNet-1k, we can get: 
 
 | Benchmark (Metrics)                | AiATrack              | Leaderboard                                                  |
 | ---------------------------------- | --------------------- | ------------------------------------------------------------ |
@@ -185,6 +185,15 @@ Download and unzip these two zip files under AiATrack project path, then both of
 ## Citation
 
 If any parts of our paper and codes help your research, please consider citing us and giving a star to our repository.
+
+```
+@article{gao2022aiatrack,
+  title={AiATrack: Attention in Attention for Transformer Visual Tracking},
+  author={Gao, Shenyuan and Zhou, Chunluan and Ma, Chao and Wang, Xinggang and Yuan, Junsong},
+  journal={arXiv preprint arXiv:2207.09603},
+  year={2022}
+}
+```
 
 ## Contact
 
