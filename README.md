@@ -165,7 +165,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
       python tracking/analysis_results.py
       ```
 
-      The frames where the target object doesn't exist will be excluded during the analysis.
+      As previous works did, the frames where the target object doesn't exist will be excluded during the analysis.
 
   - For multiple threads inference, just add ```--threads 40``` after ```tracking/test.py``` (suppose you want to use 40 threads in total).
 
