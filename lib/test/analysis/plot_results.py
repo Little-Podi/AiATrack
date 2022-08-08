@@ -313,7 +313,7 @@ def generate_formatted_report(row_labels, scores, table_name=''):
 
     for trk_id, d_name in enumerate(row_labels):
         # Display name
-        report_text = '{prev}{tracker: <{width}} |'.format(prev=report_text, tracker=d_name,
+        report_text = '{prev} {tracker: <{width}} |'.format(prev=report_text, tracker=d_name,
                                                            width=name_width)
         for (score_type, score_value), s_w in zip(scores.items(), score_widths):
             report_text = '{prev} {score: <{width}} |'.format(prev=report_text,

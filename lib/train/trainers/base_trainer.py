@@ -61,7 +61,7 @@ class BaseTrainer:
 
             if self.settings.local_rank in [-1, 0]:
                 if not os.path.exists(self._checkpoint_dir):
-                    # print("training with multiple GPUs, checkpoints directory doesn't exist ")
+                    # print("training with multiple GPUs, checkpoints directory doesn't exist")
                     # print('create checkpoints directory ...')
                     os.makedirs(self._checkpoint_dir)
         else:
