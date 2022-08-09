@@ -97,11 +97,9 @@ class BaseImageDataset(torch.utils.data.Dataset):
 
         Args:
             image_id: Index of image.
-            anno (None) : The annotation for the sequence (see get_sequence_info). If None, they will be loaded.
+            anno (None): The annotation for the sequence (see get_sequence_info). If None, they will be loaded.
 
-        returns:
-            image
-            anno
+        Returns:
             dict: A dict containing meta information about the sequence, e.g. class of the target object.
         """
 

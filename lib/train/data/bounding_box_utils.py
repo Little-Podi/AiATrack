@@ -37,13 +37,13 @@ def rel_to_rect(bb, sz_norm=None):
 def masks_to_bboxes(mask, fmt='c'):
     """
     Convert a mask tensor to one or more bounding boxes.
-    Note: This function is a bit new, make sure it does what it says.  /Andreas
+    Note: This function is a bit new, make sure it does what it says.
 
     Args:
         mask: Tensor of masks, shape = (..., H, W)
-        fmt: bbox layout. 'c' => "center + size" or (x_center, y_center, width, height)
-                          't' => "top left + size" or (x_left, y_top, width, height)
-                          'v' => "vertices" or (x_left, y_top, x_right, y_bottom)
+        fmt: bbox layout. 'c' => 'center + size' or (x_center, y_center, width, height)
+                          't' => 'top left + size' or (x_left, y_top, width, height)
+                          'v' => 'vertices' or (x_left, y_top, x_right, y_bottom)
     Returns:
         Tensor containing a batch of bounding boxes, shape = (..., 4)
     """

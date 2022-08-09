@@ -161,10 +161,7 @@ class TransformBase:
         return coords
 
     def transform_bbox(self, bbox, image_shape, *rand_params):
-        """
-        Assumes [x, y, w, h].
-        """
-
+        # Assumes [x, y, w, h]
         # Check if not overloaded
         if self.transform_coords.__code__ == TransformBase.transform_coords.__code__:
             return bbox
