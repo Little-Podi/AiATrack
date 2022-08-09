@@ -32,7 +32,7 @@ class Lasot(BaseVideoDataset):
             root: Path to the lasot dataset.
             image_loader (jpeg4py_loader): The function to read the images. jpeg4py (https://github.com/ajkxyz/jpeg4py)
                                            is used by default.
-            vid_ids: List containing the ids of the videos (1 - 20) used for training. If vid_ids = [1, 3, 5], then the
+            vid_ids: List containing the IDs of the videos (1 - 20) used for training. If vid_ids = [1, 3, 5], then the
                      videos with subscripts -1, -3, and -5 from each class will be used for training.
             split: If split='train', the official train split (protocol-II) is used for training. Note: Only one of
                    vid_ids or split option can be used at a time.

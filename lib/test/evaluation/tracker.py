@@ -34,7 +34,7 @@ class Tracker:
     Args:
         name: Name of tracking method.
         parameter_name: Name of parameter file.
-        run_id: The run id.
+        run_id: The run ID.
         display_name: Name to be displayed in the result plots.
     """
 

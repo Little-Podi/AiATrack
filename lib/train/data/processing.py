@@ -42,7 +42,7 @@ class AIATRACKProcessing(BaseProcessing):
     """
     The processing class used for training LittleBoy. The images are processed in the following way.
 
-    First, the target bounding box is jittered by adding some noise. Next, a square region (called search region )
+    First, the target bounding box is jittered by adding some noise. Next, a square region (called search region)
     centered at the jittered target center, and of area search_area_factor^2 times the area of the jittered box is
     cropped from the image. The reason for jittering the target box is to avoid learning the bias that the target is
     always at the center of the search region. The search region is then resized to a fixed size given by the

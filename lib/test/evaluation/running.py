@@ -107,7 +107,7 @@ def run_sequence(seq: Sequence, tracker: Tracker, debug=False, num_gpu=8):
     Runs a tracker on a sequence.
     """
 
-    # Add multiple gpu support
+    # Add multiple GPU support
     try:
         worker_name = multiprocessing.current_process().name
         worker_id = int(worker_name[worker_name.find('-') + 1:]) - 1

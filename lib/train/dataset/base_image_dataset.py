@@ -45,7 +45,7 @@ class BaseImageDataset(torch.utils.data.Dataset):
         Name of the dataset.
 
         Returns:
-            string: Name of the dataset
+            string: Name of the dataset.
         """
 
         raise NotImplementedError

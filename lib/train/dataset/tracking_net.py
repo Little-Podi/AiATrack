@@ -54,7 +54,7 @@ class TrackingNet(BaseVideoDataset):
             root: The path to the TrackingNet folder, containing the training sets.
             image_loader (jpeg4py_loader): The function to read the images. jpeg4py (https://github.com/ajkxyz/jpeg4py)
                                            is used by default.
-            set_ids (None): List containing the ids of the TrackingNet sets to be used for training. If None, all the
+            set_ids (None): List containing the IDs of the TrackingNet sets to be used for training. If None, all the
                             sets (0 - 11) will be used.
             data_fraction: Fraction of dataset to be used. The complete dataset is used by default.
         """

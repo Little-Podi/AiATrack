@@ -41,7 +41,7 @@ class LaSOTDataset(BaseDataset):
 
         occlusion_label_path = '{}/{}/{}/full_occlusion.txt'.format(self.base_path, class_name, sequence_name)
 
-        # NOTE: pandas backed seems super super slow for loading occlusion/oov masks
+        # Note: pandas backed seems super super slow for loading occlusion/oov masks
         full_occlusion = load_text(str(occlusion_label_path), delimiter=',', dtype=np.float64, backend='numpy')
 
         out_of_view_label_path = '{}/{}/{}/out_of_view.txt'.format(self.base_path, class_name, sequence_name)

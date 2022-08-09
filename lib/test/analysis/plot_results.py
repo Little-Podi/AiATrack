@@ -424,7 +424,7 @@ def plot_got_success(trackers, report_name):
         if len(eval_data.keys()) > 1:
             raise Exception
 
-        # First field is the tracker name. Index it out
+        # First field is the tracker name, index it out
         eval_data = eval_data[list(eval_data.keys())[0]]
         if 'succ_curve' in eval_data.keys():
             curve = eval_data['succ_curve']

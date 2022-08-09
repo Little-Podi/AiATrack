@@ -56,7 +56,7 @@ class TrackingSampler(torch.utils.data.Dataset):
         Samples num_ids frames between min_id and max_id for which target is visible.
 
         Args:
-            visible: 1d Tensor indicating whether target is visible for each frame.
+            visible: 1D Tensor indicating whether target is visible for each frame.
             min_id: Minimum allowed frame number.
             max_id: Maximum allowed frame number.
 
@@ -69,7 +69,7 @@ class TrackingSampler(torch.utils.data.Dataset):
         if max_id is None or max_id > len(visible):
             max_id = len(visible)
 
-        # Get valid ids
+        # Get valid IDs
         if force_invisible:
             valid_ids = [i for i in range(min_id, max_id) if not visible[i]]
         elif allow_invisible:
@@ -77,7 +77,7 @@ class TrackingSampler(torch.utils.data.Dataset):
         else:
             valid_ids = [i for i in range(min_id, max_id) if visible[i]]
 
-        # No visible ids
+        # No visible IDs
         if len(valid_ids) == 0:
             return None
 

@@ -35,7 +35,7 @@ class Got10k(BaseVideoDataset):
             split: 'train' or 'val'. Note: The validation split here is a subset of the official got-10k train split,
                     not NOT the official got-10k validation split. To use the official validation split, provide that as
                     the root folder instead.
-            seq_ids: List containing the ids of the videos to be used for training. Note: Only one of 'split' or 'seq_ids'
+            seq_ids: List containing the IDs of the videos to be used for training. Note: Only one of 'split' or 'seq_ids'
                      options can be used at the same time.
             data_fraction: Fraction of dataset to be used. The complete dataset is used by default.
         """

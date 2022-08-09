@@ -43,7 +43,7 @@ class OTBDataset(BaseDataset):
 
         anno_path = '{}/{}'.format(self.base_path, sequence_info['anno_path'])
 
-        # NOTE: OTB has some weird annos which panda cannot handle
+        # Note: OTB has some weird annos which panda cannot handle
         ground_truth_rect = load_text(str(anno_path), delimiter=(',', None), dtype=np.float64, backend='numpy')
 
         return Sequence(sequence_info['name'], frames, 'otb', ground_truth_rect[init_omit:, :],

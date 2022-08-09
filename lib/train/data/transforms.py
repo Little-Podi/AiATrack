@@ -18,10 +18,10 @@ class Transform:
     This is done by calling the object with the following key-word arguments (all are optional).
 
     The following arguments are inputs to be transformed. They are either supplied as a single instance, or a list of instances.
-        image: Image
-        coords: 2xN dimensional Tensor of 2D image coordinates [y, x]
-        bbox: Bounding box on the form [x, y, w, h]
-        mask: Segmentation mask with discrete classes
+        image: Image.
+        coords: 2xN dimensional Tensor of 2D image coordinates [y, x].
+        bbox: Bounding box on the form [x, y, w, h].
+        mask: Segmentation mask with discrete classes.
 
     The following parameters can be supplied with calling the transform object:
         joint (bool): If True then transform all images/coords/bbox/mask in the list jointly using the same transformation.

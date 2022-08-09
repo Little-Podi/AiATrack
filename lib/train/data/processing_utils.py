@@ -16,8 +16,8 @@ def sample_target(im, target_bb, search_area_factor, output_sz=None):
     Extracts a square crop centered at target_bb box, of area search_area_factor^2 times target_bb area.
 
     Args:
-        im: cv image
-        target_bb: Target box [x, y, w, h]
+        im: cv image.
+        target_bb: Target box [x, y, w, h].
         search_area_factor: Ratio of crop size to target size.
         output_sz (float): Size to which the extracted crop is resized (always square). If None, no resizing is done.
 
@@ -80,7 +80,7 @@ def transform_image_to_crop(box_in: torch.Tensor, box_extract: torch.Tensor, res
     Transform the box coordinates from the original image coordinates to the coordinates of the cropped image.
 
     Args:
-        box_in: The box for which the coordinates are to be transformed
+        box_in: The box for which the coordinates are to be transformed.
         box_extract: The box about which the image crop has been extracted.
         resize_factor: The ratio between the original image scale and the scale of the image crop.
         crop_sz: Size of the cropped image.
