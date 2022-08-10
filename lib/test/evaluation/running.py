@@ -133,7 +133,7 @@ def run_sequence(seq: Sequence, tracker: Tracker, debug=False, num_gpu=8):
         print('FPS: {}'.format(-1))
         return
 
-    print('Tracker: {} {} {} , Sequence: {}'.format(tracker.name, tracker.parameter_name, tracker.run_id, seq.name))
+    print('Tracker: {} {}, Sequence: {}'.format(tracker.name, tracker.parameter_name, seq.name))
 
     if debug:
         output = tracker.run_sequence(seq, debug=debug)
