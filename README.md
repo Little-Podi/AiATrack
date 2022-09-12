@@ -184,7 +184,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
 ## Citation
 
-If any parts of our paper and codes help your research, please consider citing us and giving a star to our repository.
+If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 
 ```
 @article{gao2022aiatrack,
