@@ -3,6 +3,16 @@ import os
 import sys
 import warnings
 
+import torch
+
+cpu_num = 8  # Num of CPU you want to use
+os.environ['OMP_NUM_THREADS'] = str(cpu_num)
+os.environ['OPENBLAS_NUM_THREADS'] = str(cpu_num)
+os.environ['MKL_NUM_THREADS'] = str(cpu_num)
+os.environ['VECLIB_MAXIMUM_THREADS'] = str(cpu_num)
+os.environ['NUMEXPR_NUM_THREADS'] = str(cpu_num)
+torch.set_num_threads(cpu_num)
+
 prj_path = os.path.join(os.path.dirname(__file__), '..')
 if prj_path not in sys.path:
     sys.path.append(prj_path)
