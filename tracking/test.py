@@ -56,13 +56,12 @@ def main():
 
     args = parser.parse_args()
 
-    cpu_num = args.cpus
-    os.environ['OMP_NUM_THREADS'] = str(cpu_num)
-    os.environ['OPENBLAS_NUM_THREADS'] = str(cpu_num)
-    os.environ['MKL_NUM_THREADS'] = str(cpu_num)
-    os.environ['VECLIB_MAXIMUM_THREADS'] = str(cpu_num)
-    os.environ['NUMEXPR_NUM_THREADS'] = str(cpu_num)
-    torch.set_num_threads(cpu_num)
+    os.environ['OMP_NUM_THREADS'] = str(args.cpus)
+    os.environ['OPENBLAS_NUM_THREADS'] = str(args.cpus)
+    os.environ['MKL_NUM_THREADS'] = str(args.cpus)
+    os.environ['VECLIB_MAXIMUM_THREADS'] = str(args.cpus)
+    os.environ['NUMEXPR_NUM_THREADS'] = str(args.cpus)
+    torch.set_num_threads(args.cpus)
 
     try:
         seq_name = int(args.seq)
