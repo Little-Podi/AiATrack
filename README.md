@@ -104,6 +104,8 @@ Download and unzip these two zip files under AiATrack project path, then both of
   sudo apt-get install libturbojpeg
   bash install.sh
   ```
+  
+  Note that your PyTorch version must be ```pytorch <= 1.10.1``` to successfully compile [PreciseRoIPooling](https://github.com/vacancy/PreciseRoIPooling) since <THC/THC.h> has been removed in ```pytorch 1.11```.
 
 - ### Training
 
