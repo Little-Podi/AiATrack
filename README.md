@@ -6,7 +6,7 @@ The official PyTorch implementation of our **ECCV 2022** paper:
 
 [Shenyuan Gao](https://github.com/Little-Podi), [Chunluan Zhou](https://www.sites.google.com/view/chunluanzhou/), [Chao Ma](https://vision.sjtu.edu.cn/), [Xinggang Wang](https://xinggangw.info/), [Junsong Yuan](https://cse.buffalo.edu/~jsyuan/)
 
-[~~ECVA Open Access~~] [[ArXiv Preprint](https://arxiv.org/abs/2207.09603)] [[Trained Models](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)] [[Raw Results](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)] [[Transformer Tracking](https://github.com/Little-Podi/Transformer_Tracking)]
+[[ECVA Open Access](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136820141.pdf)] [[ArXiv Preprint](https://arxiv.org/abs/2207.09603)] [[Trained Models](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)] [[Raw Results](https://github.com/Little-Podi/AiATrack/releases/tag/downloads)] [[Transformer Tracking](https://github.com/Little-Podi/Transformer_Tracking)]
 
 ## Highlight
 
