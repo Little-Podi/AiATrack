@@ -189,11 +189,13 @@ Download and unzip these two zip files under AiATrack project path, then both of
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 
 ```
-@article{gao2022aiatrack,
+@inproceedings{gao2022aiatrack,
   title={AiATrack: Attention in Attention for Transformer Visual Tracking},
   author={Gao, Shenyuan and Zhou, Chunluan and Ma, Chao and Wang, Xinggang and Yuan, Junsong},
-  journal={arXiv preprint arXiv:2207.09603},
-  year={2022}
+  booktitle={European Conference on Computer Vision},
+  pages={146--164},
+  year={2022},
+  organization={Springer}
 }
 ```
 
