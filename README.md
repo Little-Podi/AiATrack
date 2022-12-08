@@ -171,13 +171,13 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
   - For multiple threads inference, just add ```--threads 40``` after ```tracking/test.py``` (suppose you want to use 40 threads in total).
 
-  - To show the immediate prediction result during inference, modify ```settings.show_result = True``` in ```lib/test/evaluation/local.py``` (may have bugs if you try this on a remote sever).
+  - To show the immediate prediction results during inference, modify ```settings.show_result = True``` in ```lib/test/evaluation/local.py``` (may have bugs if you try this on a remote sever).
 
   - Please refer to [STARK+Alpha-Refine](https://github.com/researchmm/Stark/blob/main/external/AR/README.md) for VOT integration and [DETR Tutorial](https://colab.research.google.com/github/facebookresearch/detr/blob/colab/notebooks/detr_attention.ipynb) for correlation map visualization.
 
 ## Acknowledgement
 
-:heart::heart::heart:Our idea is implemented base on the following projects. We really appreciate their wonderful open-source work!
+:heart::heart::heart:Our idea is implemented base on the following projects. We really appreciate their wonderful open-source works!
 
 - [STARK](https://github.com/researchmm/Stark) [[related paper](https://arxiv.org/abs/2103.17154)]
 - [PyTracking](https://github.com/visionml/pytracking) [[related paper](https://arxiv.org/abs/1811.07628)]
@@ -201,4 +201,4 @@ If any parts of our paper and code help your research, please consider citing us
 
 ## Contact
 
-If you have any questions or concerns, feel free to open issues or directly contact me through the ways on my GitHub homepage. Suggestions and collaborations are also highly welcomed!
+If you have any questions or concerns, feel free to open issues or directly contact me through the ways on my GitHub homepage. Suggestions and collaborations are also highly welcome!
