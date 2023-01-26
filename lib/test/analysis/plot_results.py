@@ -105,8 +105,6 @@ def get_tracker_display_name(tracker):
 
 
 def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, plot_opts):
-    plt.rcParams['text.usetex'] = True
-    plt.rcParams['font.family'] = 'Times New Roman'
     # Plot settings
     font_size = plot_opts.get('font_size', 20)
     font_size_axis = plot_opts.get('font_size_axis', 20)
@@ -118,11 +116,10 @@ def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, p
 
     xlabel = plot_opts['xlabel']
     ylabel = plot_opts['ylabel']
-    ylabel = '%s' % (ylabel.replace('%', '\%'))
     xlim = plot_opts['xlim']
     ylim = plot_opts['ylim']
 
-    title = r'$\bf{%s}$' % (plot_opts['title'])
+    title = plot_opts['title']
 
     matplotlib.rcParams.update({'font.size': font_size})
     matplotlib.rcParams.update({'axes.titlesize': font_size_axis})
@@ -149,15 +146,8 @@ def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, p
 
         legend_text.append('{} [{:.1f}]'.format(disp_name, scores[id_sort]))
 
-    try:
-        # Add bold to our method
-        for i in range(1, 2):
-            legend_text[-i] = r'\textbf{%s}' % (legend_text[-i])
-
-        ax.legend(plotted_lines[::-1], legend_text[::-1], loc=legend_loc, fancybox=False, edgecolor='black',
-                  fontsize=font_size_legend, framealpha=1.0)
-    except:
-        pass
+    ax.legend(plotted_lines[::-1], legend_text[::-1], loc=legend_loc, fancybox=False, edgecolor='black',
+              fontsize=font_size_legend, framealpha=1.0)
 
     ax.set(xlabel=xlabel,
            ylabel=ylabel,
