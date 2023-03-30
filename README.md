@@ -1,6 +1,6 @@
 # AiATrack
 
-The official PyTorch implementation of our **ECCV 2022** paper: 
+The official PyTorch implementation of our **ECCV 2022** paper:
 
 **AiATrack: Attention in Attention for Transformer Visual Tracking**
 
@@ -33,7 +33,7 @@ The proposed AiATrack sets state-of-the-art results on 8 widely used benchmarks.
 
 ### :bookmark:Inference Speed
 
-The proposed AiATrack can run at 38fps (frames per second) on a single NVIDIA GeForce RTX 2080 Ti.
+The proposed AiATrack can run at 38 fps (frames per second) on a single NVIDIA GeForce RTX 2080 Ti.
 
 ### :bookmark:Training Cost
 
@@ -91,7 +91,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
     	|--data_seq
     ```
 
-  - Edit the **PATH** in ```lib/test/evaluation/local.py``` and ```lib/train/adim/local.py``` to the proper absolute path.
+  - Edit the **PATH** in `lib/test/evaluation/local.py` and `lib/train/adim/local.py` to the proper absolute path.
 
 - ### Installation
 
@@ -105,7 +105,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
   bash install.sh
   ```
   
-  Note that your PyTorch version must be ```pytorch <= 1.10.1``` to successfully compile [PreciseRoIPooling](https://github.com/vacancy/PreciseRoIPooling) since <THC/THC.h> has been removed in ```pytorch 1.11```.
+  Note that your PyTorch version must be `pytorch <= 1.10.1` to successfully compile [PreciseRoIPooling](https://github.com/vacancy/PreciseRoIPooling) since <THC/THC.h> has been removed in `pytorch 1.11`.
 
 - ### Training
 
@@ -121,7 +121,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
     python tracking/train.py
     ```
 
-  - For GOT-10k evaluation, remember to set ```--config baseline_got```.
+  - For GOT-10k evaluation, remember to set `--config baseline_got`.
 
 - ### Evaluation
 
@@ -145,7 +145,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
       python lib/test/utils/transform_trackingnet.py --tracker_name aiatrack --cfg_name baseline
       ```
 
-      Then upload ```test/tracking_results/aiatrack/baseline/trackingnet_submit.zip``` to the [online evaluation server](https://eval.ai/web/challenges/challenge-page/1805/overview).
+      Then upload `test/tracking_results/aiatrack/baseline/trackingnet_submit.zip` to the [online evaluation server](https://eval.ai/web/challenges/challenge-page/1805/overview).
 
     - GOT-10k
 
@@ -154,7 +154,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
       python lib/test/utils/transform_got10k.py --tracker_name aiatrack --cfg_name baseline_got
       ```
 
-      Then upload ```test/tracking_results/aiatrack/baseline_got/got10k_submit.zip``` to the [online evaluation server](http://got-10k.aitestunion.com/submit_instructions).
+      Then upload `test/tracking_results/aiatrack/baseline_got/got10k_submit.zip` to the [online evaluation server](http://got-10k.aitestunion.com/submit_instructions).
 
   - On small-scale benchmarks: 
 
@@ -169,9 +169,9 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
       As previous works did, the frames where the target object doesn't exist will be excluded during the analysis.
 
-  - For multiple threads inference, just add ```--threads 40``` after ```tracking/test.py``` (suppose you want to use 40 threads in total).
+  - For multiple threads inference, just add `--threads 40` after `tracking/test.py` (suppose you want to use 40 threads in total).
 
-  - To show the immediate prediction results during inference, modify ```settings.show_result = True``` in ```lib/test/evaluation/local.py``` (may have bugs if you try this on a remote sever).
+  - To show the immediate prediction results during inference, modify `settings.show_result = True` in `lib/test/evaluation/local.py` (may have bugs if you try this on a remote sever).
 
   - Please refer to [STARK+Alpha-Refine](https://github.com/researchmm/Stark/blob/main/external/AR/README.md) for VOT integration and [DETR Tutorial](https://colab.research.google.com/github/facebookresearch/detr/blob/colab/notebooks/detr_attention.ipynb) for correlation map visualization.
 
