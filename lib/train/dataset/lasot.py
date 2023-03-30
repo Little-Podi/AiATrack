@@ -67,7 +67,6 @@ class Lasot(BaseVideoDataset):
             sequence_list = [c + '-' + str(v) for c in self.class_list for v in vid_ids]
         else:
             raise ValueError('ERROR: set either split_name or vid_ids')
-
         return sequence_list
 
     def _build_class_list(self):
@@ -78,7 +77,6 @@ class Lasot(BaseVideoDataset):
                 seq_per_class[class_name].append(seq_id)
             else:
                 seq_per_class[class_name] = [seq_id]
-
         return seq_per_class
 
     def get_name(self):

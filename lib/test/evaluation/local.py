@@ -22,5 +22,4 @@ def local_env_settings():
     settings.trackingnet_path = 'PATH/TrackingNet'
     settings.uav_path = 'PATH/UAV123'
     settings.show_result = False
-
     return settings

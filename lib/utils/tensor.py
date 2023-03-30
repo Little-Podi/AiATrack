@@ -30,7 +30,6 @@ class TensorDict(OrderedDict):
         def apply_attr(*args, **kwargs):
             return TensorDict(
                 {n: getattr(e, name)(*args, **kwargs) if hasattr(e, name) else e for n, e in self.items()})
-
         return apply_attr
 
     def attribute(self, attr: str, *args):
@@ -219,7 +218,6 @@ class TensorList(list):
 
         def apply_attr(*args, **kwargs):
             return TensorList([getattr(e, name)(*args, **kwargs) for e in self])
-
         return apply_attr
 
     @staticmethod

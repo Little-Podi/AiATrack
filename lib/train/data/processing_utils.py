@@ -133,7 +133,6 @@ def jittered_center_crop(frames, box_extract, box_gt, search_area_factor, output
     # Note that here we use normalized coord
     box_crop = [transform_image_to_crop(a_gt, a_ex, rf, crop_sz, normalize=True)
                 for a_gt, a_ex, rf in zip(box_gt, box_extract, resize_factors)]  # (x1,y1,w,h) list of tensors
-
     return frames_crop, box_crop, att_mask
 
 
@@ -184,7 +183,6 @@ def iou(reference, proposals):
     # Area
     intersection = sz.prod(dim=1)
     union = reference[:, 2:].prod(dim=1) + proposals[:, 2:].prod(dim=1) - intersection
-
     return intersection / union
 
 
@@ -251,5 +249,4 @@ def perturb_box(box, min_iou=0.5, sigma_factor=0.1):
 
         # Else, reduce the perturb factor
         perturb_factor *= 0.9
-
     return box_per, box_iou

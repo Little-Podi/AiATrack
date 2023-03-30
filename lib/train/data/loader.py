@@ -42,7 +42,6 @@ def ltr_collate(batch):
             # Array of string classes and object
             if torch.utils.data.dataloader.re.search('[SaUO]', elem.dtype.str) is not None:
                 raise TypeError(error_msg.format(elem.dtype))
-
             return torch.stack([torch.from_numpy(b) for b in batch], 0)
         if elem.shape == ():  # Scalars
             py_type = float if elem.dtype.name.startswith('float') else int

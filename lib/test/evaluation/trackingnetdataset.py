@@ -44,7 +44,6 @@ class TrackingNetDataset(BaseDataset):
         frame_list = [frame for frame in os.listdir(frames_path) if frame.endswith('.jpg')]
         frame_list.sort(key=lambda f: int(f[:-4]))
         frames_list = [os.path.join(frames_path, frame) for frame in frame_list]
-
         return Sequence(sequence_name, frames_list, 'trackingnet', ground_truth_rect.reshape(-1, 4))
 
     def __len__(self):
@@ -58,5 +57,4 @@ class TrackingNetDataset(BaseDataset):
             sequences_cur_set = [(s, os.path.splitext(f)[0]) for f in os.listdir(anno_dir) if f.endswith('.txt')]
 
             sequence_list += sequences_cur_set
-
         return sequence_list

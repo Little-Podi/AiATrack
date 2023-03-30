@@ -89,6 +89,7 @@ def all_gather(data):
 
     Args:
         data: Any picklable object.
+
     Returns:
         list[data]: List of data gathered from each rank.
     """
@@ -124,7 +125,6 @@ def all_gather(data):
     for size, tensor in zip(size_list, tensor_list):
         buffer = tensor.cpu().numpy().tobytes()[:size]
         data_list.append(pickle.loads(buffer))
-
     return data_list
 
 

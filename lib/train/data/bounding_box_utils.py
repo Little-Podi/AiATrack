@@ -44,6 +44,7 @@ def masks_to_bboxes(mask, fmt='c'):
         fmt: bbox layout. 'c' => 'center + size' or (x_center, y_center, width, height)
                           't' => 'top left + size' or (x_left, y_top, width, height)
                           'v' => 'vertices' or (x_left, y_top, x_right, y_bottom)
+
     Returns:
         Tensor containing a batch of bounding boxes, shape = (..., 4)
     """
@@ -98,5 +99,4 @@ def masks_to_bboxes_multi(mask, ids, fmt='c'):
         else:
             raise ValueError("ERROR: undefined bounding box layout '%s'" % fmt)
         bboxes.append(bb)
-
     return bboxes

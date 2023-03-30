@@ -21,7 +21,6 @@ def parse_args():
     parser.add_argument('--nproc', type=int, help='number of GPUs per node')  # Specify when mode is multiple
 
     args = parser.parse_args()
-
     return args
 
 

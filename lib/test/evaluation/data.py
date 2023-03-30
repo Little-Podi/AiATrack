@@ -102,7 +102,6 @@ class Sequence:
 
             if self.ground_truth_seg is not None:
                 init_data[0]['mask'] = self.ground_truth_seg[0]
-
         return init_data
 
     def init_info(self):
@@ -149,7 +148,6 @@ class Sequence:
         if self.object_ids is not None:
             init_data['object_ids'] = self.object_ids
             init_data['sequence_object_ids'] = self.object_ids
-
         return init_data
 
     def target_class(self, frame_num=None):

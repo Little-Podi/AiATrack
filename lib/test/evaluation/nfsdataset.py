@@ -44,7 +44,6 @@ class NFSDataset(BaseDataset):
         anno_path = '{}/{}'.format(self.base_path, sequence_info['anno_path'])
 
         ground_truth_rect = load_text(str(anno_path), delimiter='\t', dtype=np.float64)
-
         return Sequence(sequence_info['name'], frames, 'nfs', ground_truth_rect[init_omit:, :],
                         object_class=sequence_info['object_class'])
 
@@ -269,5 +268,4 @@ class NFSDataset(BaseDataset):
             {'name': 'nfs_zebra_fish', 'path': 'sequences/zebra_fish', 'startFrame': 1, 'endFrame': 671, 'nz': 5,
              'ext': 'jpg', 'anno_path': 'anno/nfs_zebra_fish.txt', 'object_class': 'fish', 'occlusion': False},
         ]
-
         return sequence_info_list

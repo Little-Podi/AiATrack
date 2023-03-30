@@ -61,7 +61,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
   - Clone our repository to your local project directory.
 
-  - Download the training datasets ([LaSOT](http://vision.cs.stonybrook.edu/~lasot/download.html), [TrackingNet](https://github.com/SilvioGiancola/TrackingNet-devkit), [GOT-10k](http://got-10k.aitestunion.com/downloads), [COCO2017](https://cocodataset.org/#download)) and testing datasets ([NfS](http://ci2cv.net/nfs/index.html), [OTB](http://cvlab.hanyang.ac.kr/tracker_benchmark/datasets.html), [UAV123](https://cemse.kaust.edu.sa/ivul/uav123)) to your disk, the organized directory should look like: 
+  - Download the training datasets ([LaSOT](http://vision.cs.stonybrook.edu/~lasot/download.html), [TrackingNet](https://github.com/SilvioGiancola/TrackingNet-devkit), [GOT-10k](http://got-10k.aitestunion.com/downloads), [COCO2017](https://cocodataset.org/#download)) and testing datasets ([NfS](http://ci2cv.net/nfs/index.html), [OTB](http://cvlab.hanyang.ac.kr/tracker_benchmark/datasets.html), [UAV123](https://cemse.kaust.edu.sa/ivul/uav123)) to your disk, the organized directory should look like:
 
     ```
     --LaSOT/
@@ -127,7 +127,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
   - Make sure you have prepared the trained model.
 
-  - On large-scale benchmarks: 
+  - On large-scale benchmarks:
 
     - LaSOT
 
@@ -156,7 +156,7 @@ Download and unzip these two zip files under AiATrack project path, then both of
 
       Then upload `test/tracking_results/aiatrack/baseline_got/got10k_submit.zip` to the [online evaluation server](http://got-10k.aitestunion.com/submit_instructions).
 
-  - On small-scale benchmarks: 
+  - On small-scale benchmarks:
 
     - NfS30, OTB100, UAV123
 

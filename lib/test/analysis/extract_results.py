@@ -35,7 +35,6 @@ def calc_iou_overlap(pred_bb, anno_bb):
     # Area
     intersection = sz.prod(dim=1)
     union = pred_bb[:, 2:].prod(dim=1) + anno_bb[:, 2:].prod(dim=1) - intersection
-
     return intersection / union
 
 
@@ -183,5 +182,4 @@ def extract_results(trackers, dataset, report_name, skip_missing_seq=False, plot
 
     with open(result_plot_path + '/eval_data.pkl', 'wb') as fh:
         pickle.dump(eval_data, fh)
-
     return eval_data

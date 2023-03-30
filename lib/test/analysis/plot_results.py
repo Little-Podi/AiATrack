@@ -29,7 +29,6 @@ def get_plot_draw_styles():
                        {'color': (0.4, 0.7, 0.1), 'line_style': '-'},
                        {'color': (0.2, 0.1, 0.7), 'line_style': '-'},
                        {'color': (0.7, 0.6, 0.2), 'line_style': '-'}]
-
     return plot_draw_style
 
 
@@ -43,7 +42,6 @@ def check_eval_data_is_valid(eval_data, trackers, dataset):
 
     tracker_names_f = [(t.name, t.parameter_name, t.run_id) for t in trackers]
     tracker_names_f_saved = [(t['name'], t['param'], t['run_id']) for t in eval_data['trackers']]
-
     return seq_names == seq_names_saved and tracker_names_f == tracker_names_f_saved
 
 
@@ -87,7 +85,6 @@ def merge_multiple_runs(eval_data):
     eval_data['ave_success_rate_plot_center'] = ave_success_rate_plot_center_merged.tolist()
     eval_data['ave_success_rate_plot_center_norm'] = ave_success_rate_plot_center_norm_merged.tolist()
     eval_data['avg_overlap_all'] = avg_overlap_all_merged.tolist()
-
     return eval_data
 
 
@@ -100,15 +97,14 @@ def get_tracker_display_name(tracker):
                                               tracker['run_id'])
     else:
         disp_name = tracker['disp_name']
-
     return disp_name
 
 
 def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, plot_opts):
     # Plot settings
     font_size = plot_opts.get('font_size', 20)
-    font_size_axis = plot_opts.get('font_size_axis', 20)
-    line_width = plot_opts.get('line_width', 2)
+    font_size_axis = plot_opts.get('font_size_axis', 30)
+    line_width = plot_opts.get('line_width', 3)
     font_size_legend = plot_opts.get('font_size_legend', 20)
 
     plot_type = plot_opts['plot_type']
@@ -123,7 +119,7 @@ def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, p
 
     matplotlib.rcParams.update({'font.size': font_size})
     matplotlib.rcParams.update({'axes.titlesize': font_size_axis})
-    matplotlib.rcParams.update({'axes.titleweight': 'black'})
+    # matplotlib.rcParams.update({'axes.titleweight': 'black'})
     matplotlib.rcParams.update({'axes.labelsize': font_size_axis})
 
     fig, ax = plt.subplots()
@@ -144,7 +140,7 @@ def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, p
         tracker = trackers[id_sort]
         disp_name = get_tracker_display_name(tracker)
 
-        legend_text.append('{} [{:.1f}]'.format(disp_name, scores[id_sort]))
+        legend_text.append('{} [{:.1f}]'.format(disp_name, scores[id_sort].item()))
 
     ax.legend(plotted_lines[::-1], legend_text[::-1], loc=legend_loc, fancybox=False, edgecolor='black',
               fontsize=font_size_legend, framealpha=1.0)
@@ -188,7 +184,6 @@ def check_and_load_precomputed_results(trackers, dataset, report_name, force_eva
 
     with open(eval_data_path, 'wb') as fh:
         pickle.dump(eval_data, fh)
-
     return eval_data
 
 
@@ -196,7 +191,6 @@ def get_auc_curve(ave_success_rate_plot_overlap, valid_sequence):
     ave_success_rate_plot_overlap = ave_success_rate_plot_overlap[valid_sequence, :, :]
     auc_curve = ave_success_rate_plot_overlap.mean(0) * 100.0
     auc = auc_curve.mean(-1)
-
     return auc_curve, auc
 
 

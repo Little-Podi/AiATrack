@@ -71,7 +71,6 @@ class MSCOCO(BaseImageDataset):
 
         if min_area is not None:
             image_list = [a for a in image_list if self.coco_set.anns[a]['area'] > min_area]
-
         return image_list
 
     def get_num_classes(self):

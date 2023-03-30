@@ -71,5 +71,4 @@ def topk_accuracy(output, target, topk=(1,)):
 
     if single_input:
         return res[0]
-
     return res

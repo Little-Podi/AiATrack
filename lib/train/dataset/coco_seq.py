@@ -69,7 +69,6 @@ class MSCOCOSeq(BaseVideoDataset):
     def _get_sequence_list(self):
         ann_list = list(self.coco_set.anns.keys())
         seq_list = [a for a in ann_list if self.coco_set.anns[a]['iscrowd'] == 0]
-
         return seq_list
 
     def is_video_sequence(self):

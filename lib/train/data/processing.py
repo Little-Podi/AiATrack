@@ -86,7 +86,6 @@ class AIATRACKProcessing(BaseProcessing):
         jittered_size = box[2:4] * torch.exp(torch.randn(2) * self.scale_jitter_factor[mode])
         max_offset = (jittered_size.prod().sqrt() * torch.tensor(self.center_jitter_factor[mode]).float())
         jittered_center = box[0:2] + 0.5 * box[2:4] + max_offset * (torch.rand(2) - 0.5)
-
         return torch.cat((jittered_center - 0.5 * jittered_size, jittered_size), dim=0)
 
     def _generate_proposals(self, box):

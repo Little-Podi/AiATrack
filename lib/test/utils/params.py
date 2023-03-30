@@ -24,7 +24,6 @@ class TrackerParams:
 
         if not default:
             return getattr(self, name)
-
         return getattr(self, name, default[0])
 
     def has(self, name: str):

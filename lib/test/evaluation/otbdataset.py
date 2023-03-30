@@ -45,7 +45,6 @@ class OTBDataset(BaseDataset):
 
         # Note: OTB has some weird annos which panda cannot handle
         ground_truth_rect = load_text(str(anno_path), delimiter=(',', None), dtype=np.float64, backend='numpy')
-
         return Sequence(sequence_info['name'], frames, 'otb', ground_truth_rect[init_omit:, :],
                         object_class=sequence_info['object_class'])
 

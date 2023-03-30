@@ -31,7 +31,6 @@ def list_sequences(root, set_ids):
 
         sequences_cur_set = [(s, os.path.splitext(f)[0]) for f in os.listdir(anno_dir) if f.endswith('.txt')]
         sequence_list += sequences_cur_set
-
     return sequence_list
 
 
@@ -93,7 +92,6 @@ class TrackingNet(BaseVideoDataset):
                 seq_per_class[class_name] = [i]
             else:
                 seq_per_class[class_name].append(i)
-
         return seq_to_class_map, seq_per_class
 
     def get_name(self):
