@@ -20,8 +20,8 @@ class BaseVideoDataset(torch.utils.data.Dataset):
         self.root = root
         self.image_loader = image_loader
 
-        self.sequence_list = []  # Contains the list of sequences
-        self.class_list = []
+        self.sequence_list = list()  # Contains the list of sequences
+        self.class_list = list()
 
     def __len__(self):
         """

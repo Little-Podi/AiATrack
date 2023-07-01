@@ -24,7 +24,7 @@ class LaSOTDataset(BaseDataset):
         self.clean_list = self.clean_seq_list()
 
     def clean_seq_list(self):
-        clean_lst = []
+        clean_lst = list()
         for i in range(len(self.sequence_list)):
             cls, _ = self.sequence_list[i].split('-')
             clean_lst.append(cls)

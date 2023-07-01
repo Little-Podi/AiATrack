@@ -47,5 +47,4 @@ class GOT10KDataset(BaseDataset):
     def _get_sequence_list(self):
         with open('{}/list.txt'.format(self.base_path)) as f:
             sequence_list = f.read().splitlines()
-
         return sequence_list

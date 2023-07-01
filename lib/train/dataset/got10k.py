@@ -103,7 +103,7 @@ class Got10k(BaseVideoDataset):
         return object_meta
 
     def _build_seq_per_class(self):
-        seq_per_class = {}
+        seq_per_class = dict()
 
         for i, s in enumerate(self.sequence_list):
             object_class = self.sequence_meta_info[s]['object_class_name']
@@ -111,7 +111,6 @@ class Got10k(BaseVideoDataset):
                 seq_per_class[object_class].append(i)
             else:
                 seq_per_class[object_class] = [i]
-
         return seq_per_class
 
     def get_sequences_in_class(self, class_name):
@@ -154,7 +153,6 @@ class Got10k(BaseVideoDataset):
         valid = (bbox[:, 2] > 0) & (bbox[:, 3] > 0)
         visible, visible_ratio = self._read_target_visible(seq_path)
         visible = visible & valid.byte()
-
         return {'bbox': bbox, 'valid': valid, 'visible': visible, 'visible_ratio': visible_ratio}
 
     def _get_frame_path(self, seq_path, frame_id):
@@ -165,7 +163,6 @@ class Got10k(BaseVideoDataset):
 
     def get_class_name(self, seq_id):
         obj_meta = self.sequence_meta_info[self.sequence_list[seq_id]]
-
         return obj_meta['object_class_name']
 
     def get_frames(self, seq_id, frame_ids, anno=None):
@@ -177,8 +174,7 @@ class Got10k(BaseVideoDataset):
         if anno is None:
             anno = self.get_sequence_info(seq_id)
 
-        anno_frames = {}
+        anno_frames = dict()
         for key, value in anno.items():
             anno_frames[key] = [value[f_id, ...].clone() for f_id in frame_ids]
-
         return frame_list, anno_frames, obj_meta

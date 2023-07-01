@@ -50,7 +50,7 @@ class TrackingNetDataset(BaseDataset):
         return len(self.sequence_list)
 
     def _list_sequences(self, root, set_ids):
-        sequence_list = []
+        sequence_list = list()
 
         for s in set_ids:
             anno_dir = os.path.join(root, s, 'anno')

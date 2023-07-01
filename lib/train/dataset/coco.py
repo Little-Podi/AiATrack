@@ -86,20 +86,19 @@ class MSCOCO(BaseImageDataset):
         return True
 
     def get_class_list(self):
-        class_list = []
+        class_list = list()
         for cat_id in self.cats.keys():
             class_list.append(self.cats[cat_id]['name'])
         return class_list
 
     def _build_im_per_class(self):
-        im_per_class = {}
+        im_per_class = dict()
         for i, im in enumerate(self.image_list):
             class_name = self.cats[self.coco_set.anns[im]['category_id']]['name']
             if class_name not in im_per_class:
                 im_per_class[class_name] = [i]
             else:
                 im_per_class[class_name].append(i)
-
         return im_per_class
 
     def get_images_in_class(self, class_name):
@@ -114,12 +113,10 @@ class MSCOCO(BaseImageDataset):
 
         valid = (bbox[2] > 0) & (bbox[3] > 0)
         visible = valid.clone().byte()
-
         return {'bbox': bbox, 'mask': mask, 'valid': valid, 'visible': visible}
 
     def _get_anno(self, im_id):
         anno = self.coco_set.anns[self.image_list[im_id]]
-
         return anno
 
     def _get_image(self, im_id):
@@ -154,5 +151,4 @@ class MSCOCO(BaseImageDataset):
             anno = self.get_image_info(image_id)
 
         object_meta = self.get_meta_info(image_id)
-
         return frame, anno, object_meta

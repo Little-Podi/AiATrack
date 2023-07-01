@@ -66,7 +66,6 @@ def ltr_collate(batch):
         return batch
     else:
         return torch.LongTensor(batch)
-
     raise TypeError((error_msg.format(type(batch[0]))))
 
 
@@ -120,7 +119,6 @@ def ltr_collate_stack1(batch):
         return batch
     else:
         return torch.LongTensor(batch)
-
     raise TypeError((error_msg.format(type(batch[0]))))
 
 

@@ -201,4 +201,4 @@ If any parts of our paper and code help your research, please consider citing us
 
 ## Contact
 
-If you have any questions or concerns, feel free to open issues or directly contact me through the ways on my GitHub homepage. Suggestions and collaborations are also highly welcome!
+If you have any questions or concerns, feel free to open issues or directly contact me through the ways on my GitHub [homepage](https://github.com/Little-Podi). Suggestions and collaborations are also highly welcome!

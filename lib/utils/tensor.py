@@ -248,5 +248,4 @@ def tensor_operation(op):
 
         # None of the operands are lists
         return op(*args, **kwargs)
-
     return oplist

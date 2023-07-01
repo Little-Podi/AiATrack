@@ -113,7 +113,7 @@ def all_gather(data):
     # Receiving Tensor from all ranks
     # We pad the tensor because torch all_gather does not support
     # Gathering tensors of different shapes
-    tensor_list = []
+    tensor_list = list()
     for _ in size_list:
         tensor_list.append(torch.empty((max_size,), dtype=torch.uint8, device='cuda'))
     if local_size != max_size:
@@ -121,7 +121,7 @@ def all_gather(data):
         tensor = torch.cat((tensor, padding), dim=0)
     dist.all_gather(tensor_list, tensor)
 
-    data_list = []
+    data_list = list()
     for size, tensor in zip(size_list, tensor_list):
         buffer = tensor.cpu().numpy().tobytes()[:size]
         data_list.append(pickle.loads(buffer))
@@ -143,8 +143,8 @@ def reduce_dict(input_dict, average=True):
     if world_size < 2:
         return input_dict
     with torch.no_grad():
-        names = []
-        values = []
+        names = list()
+        values = list()
         # Sort the keys so that they are consistent across processes
         for k in sorted(input_dict.keys()):
             names.append(k)
@@ -178,7 +178,7 @@ class MetricLogger(object):
             type(self).__name__, attr))
 
     def __str__(self):
-        loss_str = []
+        loss_str = list()
         for name, meter in self.meters.items():
             loss_str.append(
                 '{}: {}'.format(name, str(meter))
@@ -333,7 +333,7 @@ def nested_tensor_from_tensor_list(tensor_list: List[Tensor]):
 # _onnx_nested_tensor_from_tensor_list() is an implementation of nested_tensor_from_tensor_list() that is supported by ONNX tracing.
 @torch.jit.unused
 def _onnx_nested_tensor_from_tensor_list(tensor_list: List[Tensor]) -> NestedTensor:
-    max_size = []
+    max_size = list()
     for i in range(tensor_list[0].dim()):
         max_size_i = torch.max(torch.stack([img.shape[i] for img in tensor_list]).to(torch.float32)).to(torch.int64)
         max_size.append(max_size_i)
@@ -343,8 +343,8 @@ def _onnx_nested_tensor_from_tensor_list(tensor_list: List[Tensor]) -> NestedTen
     # pad_img[: img.shape[0], : img.shape[1], : img.shape[2]].copy_(img)
     # m[: img.shape[1], :img.shape[2]] = False
     # Which is not yet supported in onnx
-    padded_imgs = []
-    padded_masks = []
+    padded_imgs = list()
+    padded_masks = list()
     for img in tensor_list:
         padding = [(s1 - s2) for s1, s2 in zip(max_size, tuple(img.shape))]
         padded_img = torch.nn.functional.pad(img, (0, padding[2], 0, padding[1], 0, padding[0]))
@@ -356,7 +356,6 @@ def _onnx_nested_tensor_from_tensor_list(tensor_list: List[Tensor]) -> NestedTen
 
     tensor = torch.stack(padded_imgs)
     mask = torch.stack(padded_masks)
-
     return NestedTensor(tensor, mask=mask)
 
 
@@ -445,7 +444,7 @@ def accuracy(output, target, topk=(1,)):
     pred = pred.t()
     correct = pred.eq(target.view(1, -1).expand_as(pred))
 
-    res = []
+    res = list()
     for k in topk:
         correct_k = correct[:k].view(-1).float().sum(0)
         res.append(correct_k.mul_(100.0 / batch_size))

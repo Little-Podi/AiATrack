@@ -69,16 +69,16 @@ class AIATRACK(BaseTracker):
         self.refer_emb_cache = [torch.bmm(refer_region, embed_bank).transpose(0, 1)]
         self.refer_pos_cache = [refer_dict['inr']]
         self.refer_msk_cache = [refer_dict['mask']]
-        self.refer_mem_list = []
+        self.refer_mem_list = list()
         for _ in range(self.refer_cap):
             self.refer_mem_list.append(self.refer_mem_cache[0])
-        self.refer_emb_list = []
+        self.refer_emb_list = list()
         for _ in range(self.refer_cap):
             self.refer_emb_list.append(self.refer_emb_cache[0])
-        self.refer_pos_list = []
+        self.refer_pos_list = list()
         for _ in range(self.refer_cap):
             self.refer_pos_list.append(self.refer_pos_cache[0])
-        self.refer_msk_list = []
+        self.refer_msk_list = list()
         for _ in range(self.refer_cap):
             self.refer_msk_list.append(self.refer_msk_cache[0])
         # Save states

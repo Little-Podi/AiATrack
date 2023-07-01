@@ -51,7 +51,7 @@ def masks_to_bboxes(mask, fmt='c'):
 
     batch_shape = mask.shape[:-2]
     mask = mask.reshape((-1, *mask.shape[-2:]))
-    bboxes = []
+    bboxes = list()
 
     for m in mask:
         mx = m.sum(dim=-2).nonzero()
@@ -72,13 +72,12 @@ def masks_to_bboxes(mask, fmt='c'):
         return torch.cat((x1 + 0.5 * s, s), dim=-1)
     elif fmt == 't':
         return torch.cat((x1, s), dim=-1)
-
     raise ValueError("ERROR: undefined bounding box layout '%s'" % fmt)
 
 
 def masks_to_bboxes_multi(mask, ids, fmt='c'):
     assert mask.dim() == 2
-    bboxes = []
+    bboxes = list()
 
     for id in ids:
         mx = (mask == id).sum(dim=-2).nonzero()

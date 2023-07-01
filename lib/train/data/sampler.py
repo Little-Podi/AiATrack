@@ -80,7 +80,6 @@ class TrackingSampler(torch.utils.data.Dataset):
         # No visible IDs
         if len(valid_ids) == 0:
             return None
-
         return random.choices(valid_ids, k=num_ids)
 
     def __getitem__(self, index):
@@ -130,7 +129,7 @@ class TrackingSampler(torch.utils.data.Dataset):
             else:
                 # In case of image dataset, just repeat the image to generate synthetic video
                 search_frame_ids = [1]
-                reference_frame_ids = []
+                reference_frame_ids = list()
                 for _ in range(num_short_refer + 1):
                     reference_frame_ids.append(1)
 
@@ -148,7 +147,6 @@ class TrackingSampler(torch.utils.data.Dataset):
 
             # Check whether data is valid
             valid = data['valid']
-
         return data
 
     def sample_seq_from_dataset(self, dataset, is_video_dataset):

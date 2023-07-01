@@ -299,5 +299,4 @@ class UAVDataset(BaseDataset):
             {'name': 'uav_wakeboard9', 'path': 'data_seq/UAV123/wakeboard9', 'startFrame': 1, 'endFrame': 355, 'nz': 6,
              'ext': 'jpg', 'anno_path': 'anno/UAV123/wakeboard9.txt', 'object_class': 'person'}
         ]
-
         return sequence_info_list

@@ -209,7 +209,6 @@ class IoUNet(nn.Module):
         fc_feat = self.fc(roi_feat)
 
         iou_pred = self.iou_predictor(fc_feat).reshape(batch_size, num_proposals_per_batch)
-
         return iou_pred
 
     def get_iou_feat(self, feat):
@@ -219,7 +218,6 @@ class IoUNet(nn.Module):
 
         feat = feat.reshape(-1, *feat.shape[-3:]) if feat.dim() == 5 else feat
         iou_feat = self.conv3(self.conv2(self.conv1(feat)))
-
         return iou_feat
 
 

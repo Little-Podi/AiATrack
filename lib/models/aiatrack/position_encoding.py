@@ -114,5 +114,4 @@ def build_position_encoding(cfg):
         raise ValueError(f'ERROR: not supported {cfg.MODEL.POSITION_EMBEDDING}')
 
     inner_position_embedding = PositionEmbeddingSine(cfg.MODEL.AIA.MATCH_DIM // 2, normalize=True)
-
     return position_embedding, inner_position_embedding

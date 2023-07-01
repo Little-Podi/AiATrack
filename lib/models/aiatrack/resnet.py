@@ -21,7 +21,6 @@ model_urls = {
 
 
 class ResNet(nn.Module):
-
     def __init__(self, block, layers, num_classes=1000, zero_init_residual=False,
                  groups=1, width_per_group=64, replace_stride_with_dilation=None,
                  norm_layer=None, last_layer=None):
@@ -92,7 +91,7 @@ class ResNet(nn.Module):
                 norm_layer(planes * block.expansion),
             )
 
-        layers = []
+        layers = list()
         layers.append(block(self.inplanes, planes, stride, downsample, self.groups,
                             self.base_width, previous_dilation, norm_layer))
         self.inplanes = planes * block.expansion
@@ -100,7 +99,6 @@ class ResNet(nn.Module):
             layers.append(block(self.inplanes, planes, groups=self.groups,
                                 base_width=self.base_width, dilation=self.dilation,
                                 norm_layer=norm_layer))
-
         return nn.Sequential(*layers)
 
     def _forward_impl(self, x):
@@ -121,7 +119,6 @@ class ResNet(nn.Module):
                         x = self.avgpool(x)
                         x = torch.flatten(x, 1)
                         x = self.fc(x)
-
         return x
 
     def forward(self, x):

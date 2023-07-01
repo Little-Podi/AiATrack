@@ -46,11 +46,11 @@ def check_eval_data_is_valid(eval_data, trackers, dataset):
 
 
 def merge_multiple_runs(eval_data):
-    new_tracker_names = []
-    ave_success_rate_plot_overlap_merged = []
-    ave_success_rate_plot_center_merged = []
-    ave_success_rate_plot_center_norm_merged = []
-    avg_overlap_all_merged = []
+    new_tracker_names = list()
+    ave_success_rate_plot_overlap_merged = list()
+    ave_success_rate_plot_center_merged = list()
+    ave_success_rate_plot_center_norm_merged = list()
+    avg_overlap_all_merged = list()
 
     ave_success_rate_plot_overlap = torch.tensor(eval_data['ave_success_rate_plot_overlap'])
     ave_success_rate_plot_center = torch.tensor(eval_data['ave_success_rate_plot_center'])
@@ -126,8 +126,8 @@ def plot_draw_save(y, x, scores, trackers, plot_draw_styles, result_plot_path, p
 
     index_sort = scores.argsort(descending=False)
 
-    plotted_lines = []
-    legend_text = []
+    plotted_lines = list()
+    legend_text = list()
 
     for id, id_sort in enumerate(index_sort):
         line = ax.plot(x.tolist(), y[id_sort, :].tolist(),
@@ -198,7 +198,6 @@ def get_prec_curve(ave_success_rate_plot_center, valid_sequence):
     ave_success_rate_plot_center = ave_success_rate_plot_center[valid_sequence, :, :]
     prec_curve = ave_success_rate_plot_center.mean(0) * 100.0
     prec_score = prec_curve[:, 20]
-
     return prec_curve, prec_score
 
 
@@ -304,7 +303,6 @@ def generate_formatted_report(row_labels, scores, table_name=''):
                                                               score='{:0.2f}'.format(score_value[trk_id].item()),
                                                               width=s_w)
         report_text = '{prev}\n'.format(prev=report_text)
-
     return report_text
 
 
@@ -335,7 +333,7 @@ def print_results(trackers, dataset, report_name, merge_results=False,
     print('reporting results over {} / {} sequences'.format(valid_sequence.long().sum().item(),
                                                             valid_sequence.shape[0]))
 
-    scores = {}
+    scores = dict()
 
     # Success plot
     if 'success' in plot_types:
@@ -395,7 +393,7 @@ def plot_got_success(trackers, report_name):
     scores = torch.zeros(len(trackers))
 
     # Load results
-    tracker_names = []
+    tracker_names = list()
     for trk_id, trk in enumerate(trackers):
         json_path = '{}/{}.json'.format(settings.got_reports_path, trk.name)
 

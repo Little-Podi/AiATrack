@@ -84,7 +84,7 @@ class MSCOCOSeq(BaseVideoDataset):
         return True
 
     def get_class_list(self):
-        class_list = []
+        class_list = list()
         for cat_id in self.cats.keys():
             class_list.append(self.cats[cat_id]['name'])
         return class_list
@@ -96,14 +96,13 @@ class MSCOCOSeq(BaseVideoDataset):
         return len(self.sequence_list)
 
     def _build_seq_per_class(self):
-        seq_per_class = {}
+        seq_per_class = dict()
         for i, seq in enumerate(self.sequence_list):
             class_name = self.cats[self.coco_set.anns[seq]['category_id']]['name']
             if class_name not in seq_per_class:
                 seq_per_class[class_name] = [i]
             else:
                 seq_per_class[class_name].append(i)
-
         return seq_per_class
 
     def get_sequences_in_class(self, class_name):
@@ -120,12 +119,10 @@ class MSCOCOSeq(BaseVideoDataset):
         valid = (bbox[:, 2] > 50) & (bbox[:, 3] > 50)
 
         visible = valid.clone().byte()
-
         return {'bbox': bbox, 'mask': mask, 'valid': valid, 'visible': visible}
 
     def _get_anno(self, seq_id):
         anno = self.coco_set.anns[self.sequence_list[seq_id]]
-
         return anno
 
     def _get_frames(self, seq_id):
@@ -166,10 +163,9 @@ class MSCOCOSeq(BaseVideoDataset):
         if anno is None:
             anno = self.get_sequence_info(seq_id)
 
-        anno_frames = {}
+        anno_frames = dict()
         for key, value in anno.items():
             anno_frames[key] = [value[0, ...] for _ in frame_ids]
 
         object_meta = self.get_meta_info(seq_id)
-
         return frame_list, anno_frames, object_meta

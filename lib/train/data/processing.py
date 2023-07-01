@@ -163,7 +163,7 @@ class AIATRACKProcessing(BaseProcessing):
 
             if s in ['reference']:
                 feat_size = self.output_sz[s] // 16
-                data[s + '_region'] = []
+                data[s + '_region'] = list()
                 for anno in data[s + '_anno']:
                     target_region = torch.zeros((feat_size, feat_size))
                     x, y, w, h = (anno * feat_size).round().int()
@@ -202,5 +202,4 @@ class AIATRACKProcessing(BaseProcessing):
             data = data.apply(stack_tensors)
         else:
             data = data.apply(lambda x: x[0] if isinstance(x, list) else x)
-
         return data

@@ -7,7 +7,7 @@ class StatValue:
 
     def clear(self):
         self.reset()
-        self.history = []
+        self.history = list()
 
     def update(self, val):
         self.val = val
@@ -31,7 +31,7 @@ class AverageMeter(object):
 
     def clear(self):
         self.reset()
-        self.history = []
+        self.history = list()
 
     def update(self, val, n=1):
         self.val = val
@@ -64,7 +64,7 @@ def topk_accuracy(output, target, topk=(1,)):
     pred = pred.t()
     correct = pred.eq(target.view(1, -1).expand_as(pred))
 
-    res = []
+    res = list()
     for k in topk:
         correct_k = correct[:k].view(-1).float().sum(0, keepdim=True)[0]
         res.append(correct_k * 100.0 / batch_size)

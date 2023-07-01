@@ -40,7 +40,7 @@ def _save_tracker_output(seq: Sequence, tracker: Tracker, output: dict):
         np.savetxt(file, scores, delimiter=',', fmt='%.2f')
 
     def _convert_dict(input_dict):
-        data_dict = {}
+        data_dict = dict()
         for elem in input_dict:
             for k, v in elem.items():
                 if k in data_dict.keys():

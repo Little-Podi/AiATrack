@@ -32,7 +32,6 @@ def _import_prroi_pooling():
             )
         except ImportError:
             raise ImportError('Can not compile Precise RoI Pooling library.')
-
     return _prroi_pooling
 
 
@@ -60,7 +59,6 @@ class PrRoIPool2DFunction(ag.Function):
             ctx.save_for_backward(features, rois, output)
         else:
             raise NotImplementedError('Precise RoI Pooling only supports GPU (cuda) implememtations.')
-
         return output
 
     @staticmethod
@@ -77,7 +75,6 @@ class PrRoIPool2DFunction(ag.Function):
             grad_output = grad_output.contiguous()
             grad_coor = _prroi_pooling.prroi_pooling_coor_backward_cuda(features, rois, output, grad_output,
                                                                         *ctx.params)
-
         return grad_input, grad_coor, None, None, None
 
 

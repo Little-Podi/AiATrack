@@ -99,14 +99,14 @@ def _edict2dict(dest_dict, src_edict):
             if not isinstance(v, edict):
                 dest_dict[k] = v
             else:
-                dest_dict[k] = {}
+                dest_dict[k] = dict()
                 _edict2dict(dest_dict[k], v)
     else:
         return
 
 
 def gen_config(config_file):
-    cfg_dict = {}
+    cfg_dict = dict()
     _edict2dict(cfg_dict, cfg)
     with open(config_file, 'w') as f:
         yaml.dump(cfg_dict, f, default_flow_style=False)

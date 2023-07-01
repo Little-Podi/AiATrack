@@ -27,7 +27,7 @@ def update_settings(settings, cfg):
 
 def names2datasets(name_list: list, settings, image_loader):
     assert isinstance(name_list, list)
-    datasets = []
+    datasets = list()
     for name in name_list:
         assert name in ['GOT10K_train', 'GOT10K_vot_train', 'LASOT', 'COCO17', 'TRACKINGNET']
         if name == 'LASOT':
@@ -92,5 +92,4 @@ def get_optimizer_scheduler(net, cfg):
     optimizer = torch.optim.AdamW(param_dicts, lr=cfg.TRAIN.LR, weight_decay=cfg.TRAIN.WEIGHT_DECAY)
 
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, cfg.TRAIN.LR_DROP_EPOCH)
-
     return optimizer, lr_scheduler

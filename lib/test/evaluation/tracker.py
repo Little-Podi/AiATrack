@@ -112,11 +112,11 @@ class Tracker:
                   'time': []}
 
         if tracker.params.save_all_boxes:
-            output['all_boxes'] = []
-            output['all_scores'] = []
+            output['all_boxes'] = list()
+            output['all_scores'] = list()
 
         def _store_outputs(tracker_out: dict, defaults=None):
-            defaults = {} if defaults is None else defaults
+            defaults = dict() if defaults is None else defaults
             for key in output.keys():
                 val = tracker_out.get(key, defaults.get(key, None))
                 if key in tracker_out or val is not None:
@@ -128,7 +128,7 @@ class Tracker:
         start_time = time.time()
         out = tracker.initialize(image, init_info, seq.name)
         if out is None:
-            out = {}
+            out = dict()
 
         prev_output = OrderedDict(out)
 
@@ -169,7 +169,6 @@ class Tracker:
         for key in ['target_bbox', 'all_boxes', 'all_scores']:
             if key in output and len(output[key]) <= 1:
                 output.pop(key)
-
         return output
 
     def run_video(self, videofilepath, optional_box=None, debug=None, visdom_info=None, save_results=False):
@@ -202,7 +201,7 @@ class Tracker:
         assert os.path.isfile(videofilepath), 'invalid param {}, video file path must be a valid video file'.format(
             videofilepath)
 
-        output_boxes = []
+        output_boxes = list()
 
         cap = cv.VideoCapture(videofilepath)
         display_name = 'Display: ' + tracker.params.tracker_name

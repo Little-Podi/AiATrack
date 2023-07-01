@@ -113,7 +113,6 @@ class TransformerEncoder(nn.Module):
 
         if self.norm is not None:
             output = self.norm(output)
-
         return output
 
 
@@ -133,7 +132,6 @@ class TransformerDecoder(nn.Module):
 
         if self.norm is not None:
             output = self.norm(output)
-
         return output.unsqueeze(0)
 
 

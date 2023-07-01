@@ -113,10 +113,10 @@ class AIATRACK(BASIC):
             bs, 1, 1)
 
         if refer_mem_list is None:
-            refer_mem_list = []
-            refer_emb_list = []
-            refer_pos_list = []
-            refer_msk_list = []
+            refer_mem_list = list()
+            refer_emb_list = list()
+            refer_pos_list = list()
+            refer_msk_list = list()
             for i in range(len(refer_dic_list)):
                 refer_mem = self.transformer.run_encoder(refer_dic_list[i]['feat'], refer_dic_list[i]['mask'],
                                                          refer_dic_list[i]['pos'], refer_dic_list[i]['inr'])
@@ -128,7 +128,6 @@ class AIATRACK(BASIC):
 
         output_embed = self.transformer.run_decoder(search_mem, refer_mem_list, refer_emb_list, refer_pos_list,
                                                     refer_msk_list)
-
         return output_embed, search_mem, search_dic['inr'], search_dic['mask']
 
     def forward_box_head(self, hs):
@@ -162,7 +161,6 @@ class AIATRACK(BASIC):
         pred_iou = self.iou_head(opt_feat, proposals)
 
         out = {'pred_iou': pred_iou}
-
         return out
 
     def forward_heads(self, hs, proposals):
@@ -181,7 +179,6 @@ class AIATRACK(BASIC):
         outputs_coord_new = outputs_coord.view(bs, Nq, 4)
 
         out = {'pred_iou': pred_iou, 'pred_boxes': outputs_coord_new}
-
         return out
 
     def adjust(self, output_back: list, pos_embed: list, inr_embed: list):
@@ -211,5 +208,4 @@ def build_aiatrack(cfg):
         head_type=cfg.MODEL.HEAD_TYPE,
         iou_head=iou_head
     )
-
     return model

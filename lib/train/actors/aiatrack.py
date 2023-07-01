@@ -36,22 +36,21 @@ class AIATRACKActor(BaseActor):
         # Process the groundtruth
         gt_bboxes = data['search_anno']  # (Ns, batch, 4) (x1,y1,w,h)
         loss, status = self.compute_losses(out_dict, gt_bboxes[0], data['proposal_iou'])
-
         return loss, status
 
     def forward_pass(self, data):
         # Process the search regions (t-th frame)
-        search_dict_list = []
+        search_dict_list = list()
         search_img = data['search_images'].view(-1, *data['search_images'].shape[2:])  # (batch, 3, 320, 320)
         search_att = data['search_att'].view(-1, *data['search_att'].shape[2:])  # (batch, 320, 320)
         search_dict_list.append(self.net(img=NestedTensor(search_img, search_att), mode='backbone'))
         search_dict = merge_feature_sequence(search_dict_list)
 
         # Process the reference frames
-        feat_dict_list = []
-        refer_reg_list = []
+        feat_dict_list = list()
+        refer_reg_list = list()
         for i in range(data['reference_images'].shape[0]):
-            reference_dict_list = []
+            reference_dict_list = list()
             reference_img_i = data['reference_images'][i].view(-1, *data['reference_images'].shape[
                                                                     2:])  # (batch, 3, 320, 320)
             reference_att_i = data['reference_att'][i].view(-1, *data['reference_att'].shape[2:])  # (batch, 320, 320)
@@ -66,7 +65,6 @@ class AIATRACKActor(BaseActor):
         # Forward the corner head
         out_dict = self.net(out_embed=out_embed, proposals=data['search_proposals'],
                             mode='heads')  # out_dict: (B, N, C), outputs_coord: (1, B, N, C)
-
         return out_dict
 
     def compute_losses(self, pred_dict, gt_bbox, iou_gt, return_status=True):

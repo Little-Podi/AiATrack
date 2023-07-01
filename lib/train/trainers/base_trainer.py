@@ -33,7 +33,7 @@ class BaseTrainer:
         self.update_settings(settings)
 
         self.epoch = 0
-        self.stats = {}
+        self.stats = dict()
 
         self.device = getattr(settings, 'device', None)
         if self.device is None:
@@ -275,5 +275,4 @@ class BaseTrainer:
         assert net_type == checkpoint_dict['net_type'], 'network is not of correct type'
 
         net.load_state_dict(checkpoint_dict['net'], strict=False)
-
         return True

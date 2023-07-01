@@ -354,5 +354,4 @@ class OTBDataset(BaseDataset):
              'anno_path': 'Woman/groundtruth_rect.txt',
              'object_class': 'person'}
         ]
-
         return sequence_info_list

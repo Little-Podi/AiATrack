@@ -6,7 +6,7 @@ import _init_paths
 from lib.test.analysis.plot_results import print_results
 from lib.test.evaluation import get_dataset, trackerlist
 
-trackers = []
+trackers = list()
 trackers.extend(trackerlist(name='aiatrack', parameter_name='baseline', dataset_name='NOTU',
                             run_ids=None, display_name='Ours'))
 

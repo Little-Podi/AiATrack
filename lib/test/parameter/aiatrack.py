@@ -24,5 +24,4 @@ def parameters(yaml_name: str):
 
     # Whether to save boxes from all queries
     params.save_all_boxes = False
-
     return params

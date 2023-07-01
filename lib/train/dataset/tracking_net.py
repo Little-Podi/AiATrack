@@ -24,7 +24,7 @@ def list_sequences(root, set_ids):
         list: List of tuples (set_id, video_name) containing the set_id and video_name for each sequence.
     """
 
-    sequence_list = []
+    sequence_list = list()
 
     for s in set_ids:
         anno_dir = os.path.join(root, 'TRAIN_' + str(s), 'anno')
@@ -85,7 +85,7 @@ class TrackingNet(BaseVideoDataset):
         with open(class_map_path, 'r') as f:
             seq_to_class_map = {seq_class.split('\t')[0]: seq_class.rstrip().split('\t')[1] for seq_class in f}
 
-        seq_per_class = {}
+        seq_per_class = dict()
         for i, seq in enumerate(self.sequence_list):
             class_name = seq_to_class_map.get(seq[1], 'Unknown')
             if class_name not in seq_per_class:
@@ -123,7 +123,6 @@ class TrackingNet(BaseVideoDataset):
             for idx in range(len(visible) - 1):
                 if not idx % 30 == 0:
                     visible[idx] = 0
-
         return {'bbox': bbox, 'valid': valid, 'visible': visible}
 
     def _get_frame(self, seq_id, frame_id):
@@ -138,7 +137,6 @@ class TrackingNet(BaseVideoDataset):
 
     def get_class_name(self, seq_id):
         obj_class = self._get_class(seq_id)
-
         return obj_class
 
     def get_frames(self, seq_id, frame_ids, anno=None):
@@ -147,7 +145,7 @@ class TrackingNet(BaseVideoDataset):
         if anno is None:
             anno = self.get_sequence_info(seq_id)
 
-        anno_frames = {}
+        anno_frames = dict()
         for key, value in anno.items():
             anno_frames[key] = [value[f_id, ...].clone() for f_id in frame_ids]
 
@@ -158,5 +156,4 @@ class TrackingNet(BaseVideoDataset):
                                    'major_class': None,
                                    'root_class': None,
                                    'motion_adverb': None})
-
         return frame_list, anno_frames, object_meta
