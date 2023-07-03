@@ -211,7 +211,6 @@ class InnerAttention(Module):
 
 
 class CorrAttention(Module):
-
     def __init__(self, num_heads, dropout, match_dim, feat_size):
         super(CorrAttention, self).__init__()
         self.match_dim = match_dim

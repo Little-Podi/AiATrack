@@ -33,7 +33,6 @@ def check_valid(tensor, type_name):
 
 
 class Transformer(nn.Module):
-
     def __init__(self, d_model=512, nhead=8, num_encoder_layers=6, num_decoder_layers=6,
                  dim_feedforward=2048, dropout=0.1, activation='relu', normalize_before=False,
                  divide_norm=False, use_AiA=True, match_dim=64, feat_size=400):
@@ -94,7 +93,6 @@ class Transformer(nn.Module):
 
 
 class TransformerEncoder(nn.Module):
-
     def __init__(self, encoder_layer, num_layers, norm=None):
         super().__init__()
         # clone 3 copies
@@ -117,7 +115,6 @@ class TransformerEncoder(nn.Module):
 
 
 class TransformerDecoder(nn.Module):
-
     def __init__(self, decoder_layer, num_layers, norm=None):
         super().__init__()
         self.layers = _get_clones(decoder_layer, num_layers)
@@ -136,7 +133,6 @@ class TransformerDecoder(nn.Module):
 
 
 class TransformerEncoderLayer(nn.Module):
-
     def __init__(self, d_model, nhead, dim_feedforward=2048, dropout=0.1,
                  activation='relu', normalize_before=False, divide_norm=False,
                  use_AiA=True, match_dim=64, feat_size=400):
@@ -185,7 +181,6 @@ class TransformerEncoderLayer(nn.Module):
 
 
 class TransformerDecoderLayer(nn.Module):
-
     def __init__(self, d_model, nhead, dim_feedforward=2048, dropout=0.1,
                  activation='relu', normalize_before=False, divide_norm=False,
                  use_AiA=True, match_dim=64, feat_size=400):

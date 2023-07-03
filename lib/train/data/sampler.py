@@ -150,7 +150,6 @@ class TrackingSampler(torch.utils.data.Dataset):
         return data
 
     def sample_seq_from_dataset(self, dataset, is_video_dataset):
-
         # Sample a sequence with enough visible frames
         while True:
             # Sample a sequence
