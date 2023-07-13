@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: 'Please kindly cite us if you find it useful.'
+title: 'AiATrack: Attention in Attention for Transformer Visual Tracking'
+type: conference-paper
+authors:
+- family-names: 'Gao'
+  given-names: 'Shenyuan'
+- family-names: 'Zhou'
+  given-names: 'Chunluan'
+- family-names: 'Ma'
+  given-names: 'Chao'
+- family-names: 'Wang'
+  given-names: 'Xinggang'
+- family-names: 'Yuan'
+  given-names: 'Junsong'
+collection-title: 'European Conference on Computer Vision' # booktitle
+start: 146 # First page number
+end: 164 # Last page number
+year: 2022
+organization: 'Springer'
