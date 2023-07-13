@@ -170,8 +170,6 @@ def run_dataset(dataset, trackers, debug=False, threads=0, num_gpus=8):
 
     print('evaluating {:4d} trackers on {:5d} sequences'.format(len(trackers), len(dataset)))
 
-    multiprocessing.set_start_method('spawn', force=True)
-
     if threads == 0:
         mode = 'sequential'
     else:
